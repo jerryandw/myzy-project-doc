@@ -1,0 +1,223 @@
+$blue: #3190e8;  
+$bc: #e4e4e4;
+$fc:#fff;
+
+// 背景图片地址和大小
+@mixin bis($url) { 
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+//定位全屏
+@mixin allcover{
+	position:absolute;
+	top:0;
+	right:0;
+}
+//tanchuang
+.maskDiv .tipMessageBox {
+  background-color: #ffffff;
+  box-shadow: 0px 6px 10px 0px rgba(11, 4, 7, 0.05);
+  position: absolute;
+  width: 17.55rem;
+  height: 10.225rem;
+  left: 0.6rem;
+  top: 12.5rem;
+  border-radius: 0.25rem;
+}
+.maskDiv .tipMessageBox .titleBox1 {
+  width: 17.55rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  font-size: 0.8rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background-color: #207fc9;
+  text-align: center;
+  color: #ffffff;
+  clear: both;
+}
+.maskDiv .tipMessageBox .titleBox1 .titleMeg {
+  float: left;
+  width: 10rem;
+  height: 2.25rem;
+  text-align: right;
+}
+.maskDiv .tipMessageBox .titleBox1 .imgBox {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.75rem;
+  float: right;
+}
+.maskDiv .tipMessageBox .titleBox1 .imgBox .imgClose {
+  width: 1rem;
+  height: 1rem;
+}
+.maskDiv .tipMessageBox .tipContentBox {
+  width: 17.55rem;
+  height: 7.975rem;
+}
+.maskDiv .tipMessageBox .tipContentBox .contentMsg {
+  width: 17.55rem;
+  height: 5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+.maskDiv .tipMessageBox .tipContentBox .btnBox {
+  width: 17.55rem;
+  height: 5rem;
+}
+.maskDiv .tipMessageBox .tipContentBox .btnBox .closeBtnBox {
+  background-color: gray;
+  box-shadow: 0px 12px 20px 0px rgba(153, 153, 153, 0.3);
+  width: 5.075rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.8rem;
+  border-radius: 0.275rem;
+  margin-left: 1.5rem;
+  float: left;
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 27;
+}
+.maskDiv .tipMessageBox .tipContentBox .btnBox .okBtnBox {
+  background-color: #4eb92a;
+  box-shadow: 0px 12px 20px 0px rgba(153, 153, 153, 0.3);
+  width: 5.075rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.8rem;
+  border-radius: 0.275rem;
+  margin-right: 1.5rem;
+  text-align: center;
+  float: right;
+  color: #FFFFFF;
+  z-index: 27;
+}
+
+//定位上下左右居中
+@mixin center {  
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {  
+	position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+}
+
+//定位左右居中
+@mixin cl {  
+	position: absolute;
+	left: 50%;
+    transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height){
+	width: $width;
+	height: $height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {  
+	font: #{$size}/#{$line-height} $family;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color){
+	font-size: $size;
+	color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between){
+	display: flex;
+	justify-content: $type;
+
+}
+html {
+    font-size: 40px;
+  }
+  @media only screen and (min-width: 320px) {
+    html {
+      font-size: 17.06666667px !important;
+    }
+  }
+  @media only screen and (min-width: 360px) {
+    html {
+      font-size: 19.2px !important;
+    }
+  }
+  @media only screen and (min-width: 375px) {
+    html {
+      font-size: 20px !important;
+    }
+  }
+  @media only screen and (min-width: 400px) {
+    html {
+      font-size: 21.33333333px !important;
+    }
+  }
+  @media only screen and (min-width: 411px) {
+    html {
+      font-size: 21.92px !important;
+    }
+  }
+  @media only screen and (min-width: 414px) {
+    html {
+      font-size: 22.08px !important;
+    }
+  }
+  @media only screen and (min-width: 480px) {
+    html {
+      font-size: 25.6px !important;
+    }
+  }
+  html {
+    font-family: "Microsoft YaHei";
+  }
+  body {
+    background-color: #f5f5f5;
+  }
+  body,
+  div,
+  a,
+  img,
+  h5,
+  p,
+  ul,
+  li,
+  span {
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    border: none;
+    text-decoration: none;
+  }
+  img {
+    border: none;
+    vertical-align: middle;
+  }
+  li {
+    list-style: none;
+  }
+  body {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+  }
