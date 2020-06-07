@@ -4,7 +4,7 @@
             <div class="goPage" @click="goPageFun">
                 <img class="goPageImg" src="../../../images/mingyi/goPage.png" />
             </div>
-            <div class="titleContent">医院名称新增</div>
+            <div class="titleContent">医院名称新增zs</div>
     </div>
     <div class="mainBox" v-cloak>
 	<div class="contentBox">
@@ -30,16 +30,13 @@
 <script>
     import 'src/style/comman.css'
     import headTop from 'src/components/header/head'
+    import {toast} from '../../../config/env'
 
     export default {
       data(){
             return{
     			type:"",
                 name:"",
-                bordth:"",
-                phone:"",
-                gender:"",
-                titleName:""
             }
         },
         components: {
@@ -57,8 +54,20 @@
 
             },
             saveFun(){
+              console.log(this.name,"MM")
                 if(!this.name){
-                    return;
+                  toast('请输入医院名称');
+
+                  console.log("99999");
+                }else{
+                  this.$router.push({
+                      path:'/addmyczyy',
+                      query:{
+                        types:1,
+                        hosname:this.name 
+                      }
+                  })
+                  console.log("KKL")
                 }
             }
             

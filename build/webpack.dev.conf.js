@@ -51,7 +51,7 @@ module.exports = merge(webpackBaseConfig, {
         })
     ],
     devServer: {
-        port: 8010,
+        port: 8012,
         historyApiFallback: true,
         hot: true,
         inline: true,

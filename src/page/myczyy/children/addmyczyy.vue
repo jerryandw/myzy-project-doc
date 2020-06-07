@@ -4,7 +4,7 @@
             <div class="goPage" @click="goPageFun">
                 <img class="goPageImg" src="../../../images/mingyi/goPage.png" />
             </div>
-            <div class="titleContent">出诊医院新增</div>
+            <div class="titleContent">出诊医院新增q</div>
     </div>
     <div id="content" class="mainBox" v-cloak>
 	<div class="topBox">
@@ -15,7 +15,7 @@
 				<li @click="toEditFun('yyname')">
 					<div class="titleBox1">医院名字</div>
 					<div class="inputBox">
-						<span>{{name}}</span>
+						<span>{{hosptailname}}</span>
 						<img class="iconNext" src="../../../images/mingyi/iconNext.png" />
 					</div>
 				</li>
@@ -65,7 +65,7 @@
     export default {
       data(){
             return{
-    			name:"",
+    			      hosptailname:"",
                 sex:"",
                 bordth:"",
                 phone:""
@@ -75,7 +75,15 @@
             headTop,
         },
         mounted(){
-            
+          
+          
+        },
+        created(){
+          console.log(this.$route.query.types,this.$route.query.hosname,"ll")            
+            if(this.$router && this.$route.query.types == 1){
+              console.log(this.$route.query.types,"klk")
+              this.hosptailname = this.$route.query.hosname
+            }
         },
         computed: {
         	// ...mapState([
