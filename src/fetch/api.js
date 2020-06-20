@@ -48,7 +48,7 @@ export function ajaxApi(method, url, params,callback) {
 			if(/^\/track\/api\/cap\//.test(url)) {
 				// 无界cap 返回值处理
 				resolve(result)
-			} else if(result.code == 200 || result.status == 0) {
+			} else if(result.code == 20000 || result.status == 0) {
 				resolve(result.data)
 			} else if(JSON.stringify(result) == '{}' || result.code == 20014 || result.code == 20015 || result.code == 20016 || result.code == 10013 || result.code == 10008) {
 				store.commit('logout');
@@ -114,7 +114,7 @@ export function ajaxJson(method, url, data) {
     //       window.location.reload();
     //     }
     //   });
-			if(result.code == 200) {
+			if(result.code == 20000) {
 				resolve(result.data)
 			}else if (JSON.stringify(result) == '{}' || result.code == 20014 || result.code == 20015 || result.code == 20016 || result.code == 10013 || result.code == 10008) {
         SetToken.rewriteToken()

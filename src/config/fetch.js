@@ -63,7 +63,7 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 
 			requestObj.onreadystatechange = () => {
 				if (requestObj.readyState == 4) {
-					if (requestObj.status == 200) {
+					if (requestObj.status == 20000) {
 						let obj = requestObj.response
 						if (typeof obj !== 'object') {
 							obj = JSON.parse(obj);

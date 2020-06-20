@@ -119,7 +119,7 @@
                 this.timer = setTimeout(() =>{
                     clearTimeout(this.timer)
                     this.show=false;
-                },200)
+                },20000)
             },
             //退出登录
             async outLogin(){

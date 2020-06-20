@@ -4,7 +4,7 @@
             <div class="goPage" @click="goPageFun">
                 <img class="goPageImg" src="../../images/mingyi/goPage.png" />
             </div>
-            <div class="titleContent">登录</div>
+            <div class="titleContent">登录s</div>
     </div>
     <div class="mainBox" style="background-color: white;">
 
@@ -14,18 +14,18 @@
         <div id="login-form-id" class="bottom">
             <div class="inputBox">
                 <div>
-                    <input v-model="telphone" id="login-name-id" placeholder="请输入手机号码" />
+                    <input type="number" v-model="telphone"  placeholder="请输入手机号码" />
                     <img class="clearImg" src="images/mingyi/clear.png" />
                 </div>
                 <div class="line"></div>
                 <div>
                     <input id="login-pwd-id" v-model="phonecode"  placeholder="请输入手机验证码" />
                     <!-- <span @click="btnGet" class="btnGet">获取验证码</span> -->
-                     <span  @click="getVerifyCode" class="btnGet" v-if="!timeShow">获取验证码1</span>
-                     <span style="color:#666666;font-size:0.6rem"  v-if="timeShow">{{times}}s1</span>
+                     <span  @click="getVerifyCode" class="btnGet" v-if="!timeShow">获取验证码</span>
+                     <span style="color:#666666;font-size:0.6rem"  v-if="timeShow">{{times}}后重发</span>
                 </div>
             </div>
-            <div class="btn_bing" @click="login">立即绑定</div>
+            <div :class="phonecode && telphone?'btn_bing_color':'btn_bing'" @click="login">立即绑定</div>
             <div class="checkView">
             <input type="checkbox" id="checkbox">
             <label for="checkbox">已阅读并同意</label>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+    import Cookies from 'js-cookie';
     import api from '../../fetch/api.js';
     import 'src/style/comman.css'
    import {toast} from '../../config/env'
@@ -77,7 +78,6 @@
             },
             btnGet(){
                 console.log(api,"opppp")
-                    let phone = document.getElementById('login-name-id').value;
                  api.api('get', api.myzy + '/common/sms', {
                     phone: phone,
                     token:'ssssss'
@@ -117,13 +117,19 @@
                  
             },
             login(){
-
-                api.api('post', api.myzy + '/login/phonecode', {
+                 api.json('post', api.myzy + '/login/phonecode', {
                     token:'ssssss',
-                    phone:this.telphonea,
+                    phone:this.telphone,
                     phoneCode:this.phonecode
                   }).then(res => {
-                    console.log("000aa99")
+                    console.log("000aa99",res)
+                    if(res){
+                      Cookies.set('token',res.token);
+                      Cookies.set('userid',res.id);
+
+                      this.$router.push('/home')
+
+                    }
                   })
             }
         
@@ -201,8 +207,7 @@
   border-style: solid;
   position: absolute;
   width: 5.2rem;
-  height: 1.6rem;
-  line-height: 1.6rem;
+  line-height: 1.1rem;
   top: 3.5rem;
   right: 0.625rem;
   border-width: 0.05rem;
@@ -255,14 +260,14 @@
   top: 4rem;
   left: 5rem;
 }
-.wxLogin .btn_bing {
+.mainBox .bottom .btn_bing_color{
   background-color: #08cd66;
   box-shadow: 0px 10px 20px 0px rgba(178, 178, 178, 0.2);
   position: absolute;
   width: 16.575rem;
   height: 2rem;
   line-height: 2rem;
-  top: 19.125rem;
+  top: 6.625rem;
   left: 1.1rem;
   border-radius: 0.275rem;
   font-size: 0.8rem;

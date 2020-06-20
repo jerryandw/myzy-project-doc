@@ -15,13 +15,16 @@ module.exports = {
         // Before setting to `true`, make sure to:
         // npm install --save-dev compression-webpack-plugin
         productionGzip: false,
-        productionGzipExtensions: ['js', 'css']
+        productionGzipExtensions: ['js', 'css'],
+        proxypath: 'http://www.zhongdafu.com/client',
+
     },
     dev: {
         env: {
             NODE_ENV: '"development"'
         },
-        port: 8000,
+        port: 8013,
+        host:'0.0.0.0',
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         context: [ //代理路径
@@ -61,6 +64,7 @@ module.exports = {
 				changeOrigin: true
 			},
         },
+        
         // proxypath: 'http://cangdu.org:8001',
         proxypath: 'http://free.shenzhuo.vip:16374',
         // CSS Sourcemaps off by default because relative paths are "buggy"

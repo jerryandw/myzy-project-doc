@@ -51,7 +51,8 @@ module.exports = merge(webpackBaseConfig, {
         })
     ],
     devServer: {
-        port: 8012,
+        port: 8013,
+        host:'0.0.0.0',
         historyApiFallback: true,
         hot: true,
         inline: true,
@@ -69,7 +70,7 @@ module.exports = merge(webpackBaseConfig, {
             '/api/v5': {
                 // target: 'http://192.168.1.152:5001/yycp-itsearch-service/',
                 // target: 'http://192.168.1.139:8180',
-                target: 'http://free.shenzhuo.vip:16374',
+                target: 'http://free.shenzhuo.vip:16944',
                 pathRewrite: { '^/api/v5': '/' },
                 changeOrigin: true
             },
